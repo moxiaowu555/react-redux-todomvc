@@ -1,9 +1,13 @@
 import React from 'react'
 import TodoItem from './TodoItem.jsx'
 
-const TodoList = () => (
+const TodoList = ({ todos, actions }) => (
   <ul className="todo-list">
-    <TodoItem></TodoItem>
+    {todos.map(todo => 
+      <TodoItem
+        key={todo.id}
+        todo={todo}
+        {...actions}></TodoItem>)}
   </ul>
 )
 

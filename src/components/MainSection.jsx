@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import TodoList from './TodoList.jsx'
+import VisibleTodoList from '../containers/VisibleTodoList'
+import Footer from './Footer.jsx'
+// import TodoList from './TodoList.jsx'
 
 export default class MainSection extends Component {
   constructor(props) {
@@ -8,10 +10,19 @@ export default class MainSection extends Component {
   }
 
   render() {
+    const { todosCount, completedCount, actions } = this.props
     return <section className="main">
-      <input id="toggle-all" className="toggle-all" type="checkbox" />
-      <label htmlFor="toggle-all">Mark all as complete</label>
-      <TodoList></TodoList>
+      <input
+        id="toggle-all"
+        className="toggle-all"
+        type="checkbox"
+        checked={ todosCount === completedCount }
+        readOnly/>
+      <label
+        htmlFor="toggle-all"
+        onClick={ actions.completeAllTodo }>Mark all as complete</label>
+      <VisibleTodoList></VisibleTodoList>
+      <Footer></Footer>
     </section>
   }
 }
