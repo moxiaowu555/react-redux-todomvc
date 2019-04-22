@@ -2,16 +2,12 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   DELETE_TODO,
-  COMPLETE_ALL_TODO
+  COMPLETE_ALL_TODO,
+  CLEAR_COMPLETED,
+  EDIT_TODO
 } from '../constants/ActionTypes'
 
-const initialState = [
-  {
-    text: 'learn redux',
-    completed: false,
-    id: 0
-  }
-]
+const initialState = []
 export default function todos(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
@@ -37,6 +33,14 @@ export default function todos(state = initialState, action) {
         ...todo,
         completed: !areAllCompleted
       }))
+    case CLEAR_COMPLETED:
+      return state.filter(todo => !todo.completed)
+    case EDIT_TODO:
+      return state.map(todo => 
+        todo.id === action.id ?
+          {...todo, text: action.text} :
+          todo
+      )
     default:
       return state
   }

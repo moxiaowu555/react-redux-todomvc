@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as todoActions from '../actions/index'
-import MainSection from '../components/MainSection.jsx'
+import MainSection from '../components/MainSection'
 
 const mapStateToProps = state => ({
   todosCount: state.todos.length,
