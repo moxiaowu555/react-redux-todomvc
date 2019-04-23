@@ -10,6 +10,7 @@
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
+    "reselect": "^4.0.0",
     "todomvc-app-css": "^2.2.0",
     "todomvc-common": "^1.0.5"
   },
